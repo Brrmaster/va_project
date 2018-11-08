@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+ main {
+    flex: 1 0 auto;
+  }
+nav.nav-center ul {
+	text-align: center;
+}
+nav.nav-center ul li {
+	display: inline;
+	float: none;
+}
+nav.nav-center ul li a {
+	display: inline-block;
+	font-weight: bold;
+	color: black;
+}
+.price_bold {
+	font-weight: bold;
+}
