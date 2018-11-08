@@ -1,4 +1,6 @@
  {% load static %}
+
+ {% load humanize %}
  <!DOCTYPE html>
   <html>
     <head>
@@ -44,22 +46,26 @@
           <h2 class="center">Artwork</h2>
           <div class="row">
               <!--Start loop here -->
+              {% if artworks_for_sale %}
+                {% for artwork in artworks_for_sale %}
             <div class="col s12 m6 l4">
-              <div class="card">
+              <div class="card medium">
                 <div class="card-image">
-                  <a href="#"><img src="assets/images/artwork/artwork_1.jpg"></a>
-                  <span class="card-title"><a class="btn-flat red white-text price_bold">$5000</a></span>
+                  <a href="#"><img src="{{ artwork.artwork_photo.url }}"></a>
+                  <span class="card-title"><a class="btn-flat red white-text price_bold">${{ artwork.price | intcomma }}</a></span>
                 </div>
                 <div class="card-content">
-                  <span class="card-title">Artwork</span>
-                  <p>By: Artist</p>
-                  <p>Posted: Date</p>
+                  <span class="card-title">{{ artwork.title }}</span>
+                  <p>By: {{ artwork.artist }}</p>
+                  <p>Posted: {{ artwork.listing_date }}</p>
                 </div>
                 <div class="card-action center">
                   <a class="btn orange accent-2" href="#">View Art</a>
                 </div>
               </div>
             </div>
+              {% endfor %}
+            {% endif %}
               <!--End loop here -->
           </div>
 
@@ -67,15 +73,17 @@
         <h2 class="center">Recently Sold</h2>
           <div class="row">
               <!--Start loop here -->
+              {% if artworks_sold %}
+                {% for artwork in artworks_sold %}
             <div class="col s12 m6 l4">
               <div class="card">
                 <div class="card-image">
-                  <a href="#"><img src="assets/images/artwork/artwork_2.jpg"></a>
+                  <a href="#"><img src="{{ artwork.artwork_photo.url }}"></a>
                   <a class="btn-floating btn-large halfway-fab waves-effect-light red center price_bold">Sold</a>
                 </div>
                 <div class="card-content">
-                  <span class="card-title">Artwork</span>
-                  <p>By: Artist</p>
+                  <span class="card-title">{{ artwork.title }}</span>
+                  <p>By: {{ artwork.artist }}</p>
                 </div>
                 <div class="card-action center">
                   <a class="btn orange accent-2" href="#">View Art</a>
@@ -83,6 +91,8 @@
               </div>
             </div>
               <!--End loop here -->
+                {% endfor %}
+              {% endif %}
           </div>
 
 
@@ -90,16 +100,20 @@
         <h2 class="center">Artists</h2>
           <div class="row">
               <!--Start loop here -->
-            <div class="col s12 m6">
-              <h3 class = "header center"> Artist Name</h3>
-              <div class="card horizontal">
+              {% if artists %}
+                {% for artist in artists %}
+            <div class="col s12 m6 l4">
+              <div class="card medium">
                 <div class="card-image">
-                  <a href="#"><img src="assets/images/artists/artist_1.jpg"></a>
+                  <a href="#"><img src="{{ artist.artist_photo.url }}"></a>
+                  <span class="card-title"> {{ artist.name }} </span>
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
-                  <p>Description</p>
-                  <p>Contributor For: 1 Year</p>
+                    {% if artist.biography %}
+                  <p>{{ artist.biography }}</p>
+                    {% endif %}
+                  <p>Contributor For: {{ artist.member_since | timesince }}</p>
                 </div>
                 <div class="card-action center">
                   <a class="btn orange accent-2" href="#">See Work</a>
@@ -107,7 +121,9 @@
               </div>
             </div>
               <!--End loop here -->
-          </div>
+              </div>
+                {% endfor %}
+              {% endif %}
 
 
       </div>
