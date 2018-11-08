@@ -2,10 +2,10 @@ from django.db import models
 from datetime import datetime
 from artists.models import Artist
 
-class Artwork(model.Model):
-	artist = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+class Artwork(models.Model):
+	artist = models.ForeignKey(Artist, on_delete=models.DO_NOTHING)
 	title = models.CharField(max_length =75)
-	price = models.DecimalField(decimal_place=2)
+	price = models.DecimalField()
 	is_sold = models.BooleanField(default=False)
 	listing_date = models.DateTimeField(default=datetime.now, blank=True)
 	description = models.TextField(blank=True)

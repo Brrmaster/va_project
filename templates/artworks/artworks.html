@@ -1,0 +1,132 @@
+ {% load static %}
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+      <!-- Google Fonts & Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Custom -->
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <!-- Nav Bar -->
+      <nav class="nav-center white" role="navigation">
+        <div class = "nav-wrapper container">
+          <a href="{% url 'index' %}" class = "left brand-logo"><img src="{% static 'images/logo/vector_logo.png' %}" alt="vector art logo" ></a>
+          <ul class=" hide-on-small">
+            <li><a href="{% url 'index' %}">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Parallax -->
+        <div class="parallax-container">
+          <div class="parallax"><img src="{% static 'images/parallax/forest_slider.jpg' %}"></div>
+          <div class="container">
+            <div class="col s10">
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                <span class="card-title center">Finding Art Made Easy</span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Main Content -->
+      <div class="container">
+        <!-- Artwork -->
+          <h2 class="center">Artwork</h2>
+          <div class="row">
+              <!--Start loop here -->
+            <div class="col s12 m6 l4">
+              <div class="card">
+                <div class="card-image">
+                  <a href="#"><img src="assets/images/artwork/artwork_1.jpg"></a>
+                  <span class="card-title"><a class="btn-flat red white-text price_bold">$5000</a></span>
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Artwork</span>
+                  <p>By: Artist</p>
+                  <p>Posted: Date</p>
+                </div>
+                <div class="card-action center">
+                  <a class="btn orange accent-2" href="#">View Art</a>
+                </div>
+              </div>
+            </div>
+              <!--End loop here -->
+          </div>
+
+        <!-- Recently Sold -->
+        <h2 class="center">Recently Sold</h2>
+          <div class="row">
+              <!--Start loop here -->
+            <div class="col s12 m6 l4">
+              <div class="card">
+                <div class="card-image">
+                  <a href="#"><img src="assets/images/artwork/artwork_2.jpg"></a>
+                  <a class="btn-floating btn-large halfway-fab waves-effect-light red center price_bold">Sold</a>
+                </div>
+                <div class="card-content">
+                  <span class="card-title">Artwork</span>
+                  <p>By: Artist</p>
+                </div>
+                <div class="card-action center">
+                  <a class="btn orange accent-2" href="#">View Art</a>
+                </div>
+              </div>
+            </div>
+              <!--End loop here -->
+          </div>
+
+
+        <!-- Artists -->
+        <h2 class="center">Artists</h2>
+          <div class="row">
+              <!--Start loop here -->
+            <div class="col s12 m6">
+              <h3 class = "header center"> Artist Name</h3>
+              <div class="card horizontal">
+                <div class="card-image">
+                  <a href="#"><img src="assets/images/artists/artist_1.jpg"></a>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                  <p>Description</p>
+                  <p>Contributor For: 1 Year</p>
+                </div>
+                <div class="card-action center">
+                  <a class="btn orange accent-2" href="#">See Work</a>
+                </div>
+              </div>
+            </div>
+              <!--End loop here -->
+          </div>
+
+
+      </div>
+    </div>
+      <!-- Footer -->
+      <footer class ="page-footer black">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text center">Copyright &copy; </h5>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- JQuery Init -->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <!-- Materialize Javascript -->
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+      <!-- Materialize Javascript Init -->
+      <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+    </body>
+  </html>
